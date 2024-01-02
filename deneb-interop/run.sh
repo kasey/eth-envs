@@ -144,7 +144,7 @@ setsid $($V_CMD \
         --interop-num-validators=256 \
         --interop-start-index=0 \
 	--chain-config-file=$DATADIR/config.yml \
-	1> $LOGDIR/validator-1.stdout 2> $LOGDIR/validator-2.stderr) &
+	1> $LOGDIR/validator-1.stdout 2> $LOGDIR/validator-1.stderr) &
 PID_V1=$!
 log_pid $PID_V1 "validator 1"
 
