@@ -39,7 +39,7 @@ popd
 GENESIS=$(($(date +%s) + 5))
 echo "genesis time: $GENESIS"
 
-GETHEXE=$HOME/src/MariusVanDerWijden/go-ethereum/build/bin/geth
+GETHEXE=$HOME/src/ethereum/go-ethereum/build/bin/geth
 SCRIPTDIR=$PWD # assumes this is run from the dir where the script lives
 
 DATADIR=/var/lib/db/deneb-interop/${GENESIS}
