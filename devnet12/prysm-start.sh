@@ -22,6 +22,7 @@ if [ "$1" = "checkpoint" ]; then
 fi
 
 $PRYSMSRC/bazel-bin/cmd/beacon-chain/beacon-chain_/beacon-chain ${CPFLAGS} \
+--genesis-state=${PANDACFG}/genesis.ssz \
 --chain-config-file=${PANDACFG}/config.yaml \
 --contract-deployment-block=0 \
 --min-sync-peers=1 \
@@ -30,11 +31,10 @@ $PRYSMSRC/bazel-bin/cmd/beacon-chain/beacon-chain_/beacon-chain ${CPFLAGS} \
 --bootstrap-node=$(curl -s https://config.dencun-devnet-12.ethpandaops.io/api/v1/nodes/inventory | jq -r '.ethereum_pairs[] | .consensus.enr' | tr '\n' ','| sed 's/,$/\n/') \
 --execution-endpoint=http://localhost:8551 \
 --datadir=${PRYSMRUN} \
---accept-terms-of-use \
 --enable-debug-rpc-endpoints \
 --grpc-max-msg-size=65568081 \
 --jwt-secret=${ETHENVS}/jwt.hex \
---genesis-state=${PANDACFG}/genesis.ssz \
+--accept-terms-of-use \
 --pprof \
 --log-file=${PRYSMRUN}/beacon.log
 
