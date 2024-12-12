@@ -18,10 +18,10 @@ pushd $PRYSMSRC
 
 bazel build //cmd/beacon-chain -c dbg
 
+#CPFLAGS="--checkpoint-sync-url=${CPURL} --genesis-beacon-api-url=${CPURL}"
 CPFLAGS=""
-if [ "$1" = "checkpoint" ]; then
+if [ "$1" != "genesis" ]; then
 	CPFLAGS="--checkpoint-sync-url=${CPURL} --genesis-beacon-api-url=${CPURL} --enable-experimental-backfill"
-	#CPFLAGS="--checkpoint-sync-url=${CPURL} --genesis-beacon-api-url=${CPURL}"
 fi
 
 $PRYSMSRC/bazel-bin/cmd/beacon-chain/beacon-chain_/beacon-chain ${CPFLAGS} \
@@ -37,6 +37,7 @@ $PRYSMSRC/bazel-bin/cmd/beacon-chain/beacon-chain_/beacon-chain ${CPFLAGS} \
 #--backfill-oldest-slot=0 \
 #--backfill-worker-count=1 \
 #--backfill-batch-size=32 \
+#--blob-storage-layout=by-epoch \
 
 popd
 
