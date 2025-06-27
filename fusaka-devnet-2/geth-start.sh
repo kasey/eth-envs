@@ -1,7 +1,7 @@
 #! /usr/bin/env bash
 #
 
-ENVRUN=/var/lib/eth/sepolia
+ENVRUN=/var/lib/eth/fusaka-devnet-2
 ETHENVS=$HOME/src/kasey/eth-envs/fusaka-devnet-2
 GETH=$HOME/src/ethereum/go-ethereum/build/bin/geth
 PANDA=$HOME/src/ethpandaops/fusaka-devnets/network-configs/devnet-2/metadata
